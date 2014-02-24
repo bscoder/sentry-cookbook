@@ -86,10 +86,8 @@ define :sentry_conf,
     elsif db_options['ENGINE'] == 'django.db.backends.mysql'
       if node['platform'] == 'ubuntu'
         package "libmysqlclient-dev" # mysql-python requires this package to be installed
-        driver_name = 'mysql-python'
-      else
-        driver_name = 'MySQLdb'
       end
+      driver_name = 'mysql-python'
     elsif db_options['ENGINE'] == 'django.db.backends.oracle'
       driver_name = 'cx_Oracle'
     else
